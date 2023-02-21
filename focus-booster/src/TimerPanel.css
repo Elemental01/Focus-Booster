@@ -1,0 +1,17 @@
+.Timer-panel-btn {
+    font-size: 18px;
+    font-weight: 600;
+    padding: 12px 16px;
+    margin-top:2.5rem;
+    margin-left: 0px;
+    margin-right: 0px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #444;
+    border-radius: 10rem;
+    cursor: pointer;
+    z-index: 500;
+  }
+  .Timer-panel-btn:hover{
+    background-color: white;
+  }
