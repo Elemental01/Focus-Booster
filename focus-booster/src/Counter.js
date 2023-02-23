@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./Counter.css";
-import TimerPanel from  './TimerPanel';
 
-
-function Counter() {
-  const [time, setTime] = useState(1500); // 1500 seconds = 25 minutes
+function Counter({ timerType }) {
+  const [time, setTime] = useState(getInitialTime(timerType));
 
   useEffect(() => {
     const countdown = setInterval(() => {
@@ -17,7 +15,20 @@ function Counter() {
       clearInterval(countdown);
     }
     return () => clearInterval(countdown);
-  }, [time]);
+  }, [time, timerType]);
+
+  function getInitialTime(timerType) {
+    switch (timerType) {
+      case "pomodoro":
+        return 1500; // 25 minutes
+      case "shortBreak":
+        return 300; // 5 minutes
+      case "longBreak":
+        return 900; // 15 minutes
+      default:
+        return 1500; // default to pomodoro timer
+    }
+  }
 
   // calculate minutes and seconds from total time
   const minutes = Math.floor(time / 60);
@@ -51,7 +62,6 @@ function Counter() {
           </div>
         </div>
       </div>
-      <TimerPanel></TimerPanel> 
     </div>
   );
 }

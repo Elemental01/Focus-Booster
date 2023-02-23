@@ -14,6 +14,13 @@ body{
   background-position: center;
   height: 110vh;
 }
+.container-count-panel{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
 h1{
   color: white;
   align-items: center;

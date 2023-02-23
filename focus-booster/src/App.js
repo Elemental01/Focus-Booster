@@ -1,7 +1,8 @@
 import './App.css';
-import React,{useEffect} from 'react';
+import React,{useState,useEffect} from 'react';
 import Header from './Header';
 import Counter from './Counter';
+import TimerPanel from './TimerPanel';
 
 function App() {
   useEffect(()=>{
@@ -29,13 +30,22 @@ function App() {
   //Set a random background image
   document.body.style.backgroundImage = `url(${randomImage})`;
   }
+  const [timerType, setTimerType] = useState('pomodoro');
+  const startPomodoro = () => setTimerType('pomodoro');
+  const startShortBreak = () => setTimerType('shortBreak');
+  const startLongBreak = () => setTimerType('longBreak');
+
   return (
     <div className="App">
-      <Header></Header>
-   
-           <Counter></Counter>
-                                 
-   
+      <Header
+      startPomodoro={startPomodoro}
+      startShortBreak={startShortBreak}
+      startLongBreak={startLongBreak}
+      ></Header>
+      <div className='container-count-panel'>   
+        <Counter timerType={timerType}></Counter>
+        <TimerPanel ></TimerPanel> 
+      </div>
     </div>
   );
 }
