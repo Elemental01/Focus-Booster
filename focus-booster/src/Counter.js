@@ -5,6 +5,10 @@ function Counter({ timerType }) {
   const [time, setTime] = useState(getInitialTime(timerType));
 
   useEffect(() => {
+    setTime(getInitialTime(timerType));
+  }, [timerType]);
+
+  useEffect(() => {
     const countdown = setInterval(() => {
       setTime((prevTime) => prevTime - 1);
       if (time === 0) {
@@ -15,7 +19,7 @@ function Counter({ timerType }) {
       clearInterval(countdown);
     }
     return () => clearInterval(countdown);
-  }, [time, timerType]);
+  }, [time]);
 
   function getInitialTime(timerType) {
     switch (timerType) {
