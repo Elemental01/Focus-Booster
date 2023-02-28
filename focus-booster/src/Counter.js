@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Counter.css";
 
-function Counter({ timerType }) {
+function Counter({ timerType, isRunning }) {
   const [time, setTime] = useState(getInitialTime(timerType));
 
   useEffect(() => {
@@ -9,17 +9,17 @@ function Counter({ timerType }) {
   }, [timerType]);
 
   useEffect(() => {
-    const countdown = setInterval(() => {
-      setTime((prevTime) => prevTime - 1);
-      if (time === 0) {
-        clearInterval(countdown);
-      }
-    }, 1000);
+    let countdown;
+    if (isRunning) {
+      countdown = setInterval(() => {
+        setTime((prevTime) => prevTime - 1);
+      }, 1000);
+    }
     if (time === 0) {
       clearInterval(countdown);
     }
     return () => clearInterval(countdown);
-  }, [time]);
+  }, [isRunning, time]);
 
   function getInitialTime(timerType) {
     switch (timerType) {
