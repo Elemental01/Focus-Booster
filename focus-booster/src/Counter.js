@@ -40,7 +40,7 @@ function Counter({ timerType, isRunning,setTime,time }) {
   return (
     <div className="container">
       <div className="container-segment">
-        <div className="segment-title">Minutes</div>
+        <div className="segment-title">Minutes Test</div>
         <div className="segment">
           <span className="flip-card" data-minutes-tens>
             <span className="top">{Math.floor(minutes / 10)}</span>
