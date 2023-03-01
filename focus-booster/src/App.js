@@ -6,18 +6,23 @@ import TimerPanel from './TimerPanel';
 import backgroundImages from './backgroundImages';
 
 function App() {
+
+  const [isRunning, setIsRunning] = useState(false);
+  const [timerType, setTimerType] = useState('pomodoro');
+  const [time, setTime] = useState(getInitialTime(timerType));
+
   useEffect(()=>{
     changeBackground();
   },[]);
   function changeBackground(){
     //Select a random background image
-  const randomIndex = Math.floor(Math.random()*backgroundImages.length);
-  const randomImage = backgroundImages[randomIndex];
-  //Set a random background image
-  document.body.style.backgroundImage = `url(${randomImage})`;
+    const randomIndex = Math.floor(Math.random()*backgroundImages.length);
+    const randomImage = backgroundImages[randomIndex];
+    //Set a random background image
+    document.body.style.backgroundImage = `url(${randomImage})`;
   }
 
-  const [isRunning, setIsRunning] = useState(false);
+
   
   const handleStart = () => {
     setIsRunning(!isRunning);
@@ -25,22 +30,51 @@ function App() {
 
   const handleReset = () => {
     setIsRunning(false);
+    setTime(getInitialTime(timerType));
   };
-  const [timerType, setTimerType] = useState('pomodoro');
+  
   const startPomodoro = () => setTimerType('pomodoro');
   const startShortBreak = () => setTimerType('shortBreak');
   const startLongBreak = () => setTimerType('longBreak');
 
+  useEffect(() => {
+    setTime(getInitialTime(timerType));
+  }, [timerType]);
+
+  function getInitialTime(timerType) {
+    switch (timerType) {
+      case "pomodoro":
+        return 1500;
+      case "shortBreak":
+        return 300;
+      case "longBreak":
+        return 900;
+      default:
+        return 1500;
+    }
+  }
+
   return (
     <div className="App">
       <Header
-      startPomodoro={startPomodoro}
-      startShortBreak={startShortBreak}
-      startLongBreak={startLongBreak}
-      ></Header>
+        startPomodoro={startPomodoro}
+        startShortBreak={startShortBreak}
+        startLongBreak={startLongBreak}
+      />
       <div className='container-count-panel'>   
-        <Counter timerType={timerType} isRunning={isRunning}></Counter>
-        <TimerPanel onStart={handleStart} onReset={handleReset}></TimerPanel> 
+      <Counter
+          timerType={timerType}
+          isRunning={isRunning}
+          setTime={setTime}
+          time={time}
+        />
+        <TimerPanel
+          onStart={handleStart}
+          onReset={handleReset}
+          startPomodoro={startPomodoro}
+          startShortBreak={startShortBreak}
+          startLongBreak={startLongBreak}
+        />
       </div>
     </div>
   );

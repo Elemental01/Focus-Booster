@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./TimerPanel.css";
 
-function TimerPanel({ onStart, onReset }) {
+function TimerPanel({ onStart, onReset}) {
   const [isRunning, setIsRunning] = useState(false);
 
   const handleStart = () => {
@@ -22,6 +22,7 @@ function TimerPanel({ onStart, onReset }) {
       <button className="Timer-panel-btn" onClick={handleReset}>
         Reset
       </button>
+
     </div>
   );
 }
