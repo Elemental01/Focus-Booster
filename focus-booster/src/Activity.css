@@ -13,3 +13,11 @@
   font-weight: 400;
   font-family: Mukta,sans-serif;
 }
+@media (max-width: 767px){
+  .Typewriter__wrapper{
+    font-size: 0.45em;
+  }
+  .Typewriter__cursor{
+    font-size: 0.45em;
+  }
+}

@@ -7,18 +7,17 @@ import TimerPanel from './TimerPanel';
 import backgroundImages from './backgroundImages';
 import Activity from './Activity';
 
-
-
 function App() {
 
   const [isRunning, setIsRunning] = useState(false);
   const [timerType, setTimerType] = useState('pomodoro');
   const [time, setTime] = useState(getInitialTime(timerType));
-  
+  const [text, setText] = useState('Enter Task Here...');
 
   useEffect(()=>{
     changeBackground();
   },[]);
+
   function changeBackground(){
     //Select a random background image
     const randomIndex = Math.floor(Math.random()*backgroundImages.length);
@@ -26,9 +25,7 @@ function App() {
     //Set a random background image
     document.body.style.backgroundImage = `url(${randomImage})`;
   }
-
-
-
+    
   const handleStart = () => {
     setIsRunning(!isRunning);
   };
@@ -44,6 +41,22 @@ function App() {
 
   useEffect(() => {
     setTime(getInitialTime(timerType));
+
+    // Set the text for the Typewriter based on the timerType
+    switch (timerType) {
+      case "pomodoro":
+        setText('Enter Task Here...');
+        break;
+      case "shortBreak":
+        setText('Take a Short Break...');
+        break;
+      case "longBreak":
+        setText('Take a Long Break...');
+        break;
+      default:
+        setText('Enter Task Here...');
+    }
+
   }, [timerType]);
 
   function getInitialTime(timerType) {
@@ -70,7 +83,7 @@ function App() {
       />
       
       <div className='container-count-panel'>  
-      <Activity></Activity> 
+      <Activity text={text}></Activity> 
       <Counter
           timerType={timerType}
           isRunning={isRunning}

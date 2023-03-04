@@ -36,17 +36,18 @@
   .header-left>img:hover{
     opacity: 1;
   }
-
-  /* Responsive styles for screens smaller than 768px */
+   /* Responsive styles for screens smaller than 768px */
 @media (max-width: 767px) {
   .header {
     flex-wrap: wrap;
-    padding: 0px 0.5em 0.2em 0.5em;
+    padding: 0px 0.15em 0.15em 0.15em;
     height: 500px;
+    
   }
 
   .header-btn {
-    margin: 0.5em;
+    margin: 0.3em;
+    font-size: 16px;
   }
 
   .header-center {
@@ -56,6 +57,6 @@
 
   .header-left {
     order: 1;
-    margin: 0.5em;
+    margin: 0.2em;
   }
 }

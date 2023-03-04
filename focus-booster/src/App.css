@@ -28,3 +28,13 @@ h1{
   align-items: center;
 }
 
+
+ /* Responsive styles for screens smaller than 768px */
+ @media (max-width: 500px) {
+  body{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 135vh;
+  }
+}
