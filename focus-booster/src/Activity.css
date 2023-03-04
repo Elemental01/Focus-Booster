@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;400;700&display=swap');
+.Typewriter__wrapper{
+  color: #f2eded;
+  padding: 0px;
+  font-size: 0.6em;
+  font-weight: 400;
+  font-family: Mukta,sans-serif;
+
+}
+.Typewriter__cursor{
+  color: white;
+  font-size: 0.6em;
+  font-weight: 400;
+  font-family: Mukta,sans-serif;
+}

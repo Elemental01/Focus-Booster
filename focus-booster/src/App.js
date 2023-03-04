@@ -2,14 +2,19 @@ import './App.css';
 import React,{useState,useEffect} from 'react';
 import Header from './Header';
 import Counter from './Counter';
+import Static from './Static';
 import TimerPanel from './TimerPanel';
 import backgroundImages from './backgroundImages';
+import Activity from './Activity';
+
+
 
 function App() {
 
   const [isRunning, setIsRunning] = useState(false);
   const [timerType, setTimerType] = useState('pomodoro');
   const [time, setTime] = useState(getInitialTime(timerType));
+  
 
   useEffect(()=>{
     changeBackground();
@@ -23,7 +28,7 @@ function App() {
   }
 
 
-  
+
   const handleStart = () => {
     setIsRunning(!isRunning);
   };
@@ -56,12 +61,16 @@ function App() {
 
   return (
     <div className="App">
+      <div>
+        
       <Header
         startPomodoro={startPomodoro}
         startShortBreak={startShortBreak}
         startLongBreak={startLongBreak}
       />
-      <div className='container-count-panel'>   
+      
+      <div className='container-count-panel'>  
+      <Activity></Activity> 
       <Counter
           timerType={timerType}
           isRunning={isRunning}
@@ -76,6 +85,8 @@ function App() {
           startLongBreak={startLongBreak}
         />
       </div>
+      </div>
+
     </div>
   );
 }

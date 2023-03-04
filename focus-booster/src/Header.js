@@ -1,11 +1,12 @@
 import React from 'react';
 import './Header.css';
 
+
 function Header({startPomodoro, startShortBreak, startLongBreak }) {
   return (
     <div className='header'>
       <div>
-        <button className='header-btn'>Add Task!</button>
+        <button className='header-btn show-modal'>Add Task!</button>
       </div>
       <div className='header-center'>
         <button className='header-btn' onClick={startPomodoro}>Pomodoro</button>

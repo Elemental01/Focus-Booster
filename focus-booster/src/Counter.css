@@ -12,7 +12,7 @@
     gap: .5em;
     justify-content: center;
     max-width: 960px; /* adjust this as needed */
-    max-height: 220px;
+    max-height: 170px;
     margin: 0 auto;
     /*border: 1px solid #ccc; /* add a border for the box-like effect */
     padding: 10px; /* add some padding for spacing */
@@ -104,3 +104,4 @@
     margin-bottom: 400px;
     color: #f7f7f7;
   }
+  
