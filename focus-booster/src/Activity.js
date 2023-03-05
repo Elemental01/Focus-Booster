@@ -15,8 +15,17 @@ function Activity({ timerType }) {
     }
   }, [timerType]);
 
+  function handleModalClick() {
+    if (timerType === "pomodoro") {
+      const taskName = prompt("Enter your task name:");
+      if (taskName) {
+        setText(taskName);
+        
+      }
+    }
+  } 
   return (
-    <div className="modal-container">
+    <div className="modal-container" onClick={handleModalClick}>
       <Typewriter options={{ strings: [text], autoStart: true, loop: true }} />
     </div>
   );

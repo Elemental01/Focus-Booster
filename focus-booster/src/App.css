@@ -30,11 +30,11 @@ h1{
 
 
  /* Responsive styles for screens smaller than 768px */
- @media (max-width: 500px) {
+ @media (max-width: 767px) {
   body{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 135vh;
+    height: 150vh;
   }
 }
