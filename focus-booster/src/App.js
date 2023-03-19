@@ -2,7 +2,6 @@
   import React,{useState,useEffect} from 'react';
   import Header from './Header';
   import Counter from './Counter';
-  import Static from './Static';
   import TimerPanel from './TimerPanel';
   import backgroundImages from './backgroundImages';
   import Activity from './Activity';
@@ -11,14 +10,11 @@
 
     const [isRunning, setIsRunning] = useState(false);
     const [timerType, setTimerType] = useState('pomodoro');
-    const [time, setTime] = useState(getInitialTime(timerType));
-    
+    const [time, setTime] = useState(getInitialTime(timerType));   
 
     useEffect(()=>{
       changeBackground();
-    },[]);
-
-    
+    },[]);    
 
     function changeBackground(){
       //Select a random background image
@@ -68,6 +64,7 @@
           startShortBreak={startShortBreak}
           startLongBreak={startLongBreak}
           handleModalClick={handleModalClick}
+          changeBackground={changeBackground}
         />
         
         <div className='container-count-panel'>  

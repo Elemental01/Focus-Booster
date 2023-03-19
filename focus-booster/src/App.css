@@ -1,7 +1,6 @@
 *{
   margin: 0;
   padding: 0;
- 
 }
 body::-webkit-scrollbar {
   display: none;
@@ -36,5 +35,6 @@ h1{
     background-repeat: no-repeat;
     background-position: center;
     height: 150vh;
+    overflow: hidden;
   }
 }

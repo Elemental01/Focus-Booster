@@ -104,4 +104,15 @@
     margin-bottom: 400px;
     color: #f7f7f7;
   }
+  @media (max-width:747px){
+    .container-count-panel{
+      max-height: 500px;
+    }
+    .container {
+      max-width: 800px; /* adjust this as needed */
+      max-height: 170px;
+      margin: 0 auto;
+      padding: 10px; /* add some padding for spacing */
+    }
+  }
   

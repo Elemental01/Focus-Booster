@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;400;700&display=swap');
+.side-nav{
+    width: 3.1em;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 1em 1em 1em 0em;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    cursor: auto;
+    transition: 0.5s ease-in-out;
+    transition-delay: 0s;
+    transform: translate(-3.2em);
+}
+.hidden {
+    transition: 0.5s ease-in-out;
+    transition-delay: 0s;
+    transform: translateX(-3.2em);
+}
+
+ul{
+    list-style-type: none;
+    padding: 0 15px;
+}
+ul li{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.user{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;    
+    padding: 0.2em;
+    border: 0.18em;
+    margin-left: auto;
+    margin-right: auto;
+}
+.user h4{
+    font-size: 1.5rem;
+    font-weight:400;
+    white-space: nowrap;
+}
+.user>img{
+    width: 0.7em;
+    border-radius: 50%;
+}
+.side-features{
+    font-size: 20.5px;
+    font-family: Mukta,sans-serif;
+    white-space: nowrap;
+    line-height: 3em;
+    transition: font-size 0.5s ease-in-out;
+    color: white;
+}
+.side-features:hover {
+    font-size: 24px;
+    transition-delay: 0s;
+    cursor: pointer;
+  }
+  
+  .side-features:not(:hover) {
+    font-size: 20.5px;
+    transition-delay: 0s;
+  }
+  hr{
+    width: 2.5em;
+    color: white;
+  }
