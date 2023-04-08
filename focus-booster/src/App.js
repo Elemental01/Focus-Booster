@@ -11,11 +11,19 @@ function App() {
   const [isRunning, setIsRunning] = useState(false);
   const [timerType, setTimerType] = useState("pomodoro");
   const [time, setTime] = useState(getInitialTime(timerType));
+  const [isCustomTimerSelected, setIsCustomTimerSelected] = useState(false);
+  const [customTime, setCustomTime] = useState(0);
+  const [counterKey, setCounterKey] = useState(0);
 
   useEffect(() => {
     changeBackground();
   }, []);
-
+  const handleCustomTimeChange = (time) => {
+    setCustomTime(time);
+  };
+  function handleCustomTimerClick() {
+    setIsCustomTimerSelected(!isCustomTimerSelected);
+  }
   function changeBackground() {
     //Select a random background image
     const randomIndex = Math.floor(Math.random() * backgroundImages.length);
@@ -30,7 +38,8 @@ function App() {
 
   const handleReset = () => {
     setIsRunning(false);
-    setTime(getInitialTime(timerType));
+    setTime(customTime || getInitialTime(timerType));
+    setCounterKey((prevKey) => prevKey + 1);
   };
 
   const startPomodoro = () => setTimerType("pomodoro");
@@ -63,25 +72,29 @@ function App() {
           startLongBreak={startLongBreak}
           handleModalClick={handleModalClick}
           changeBackground={changeBackground}
+          handleCustomTimerClick={handleCustomTimerClick}
         />
-
-        <div className="container-count-panel">
-          <Activity timerType={timerType}></Activity>
-          <Counter
-            timerType={timerType}
-            isRunning={isRunning}
-            setTime={setTime}
-            time={time}
-          />
-          <TimerPanel
-            onStart={handleStart}
-            onReset={handleReset}
-            startPomodoro={startPomodoro}
-            startShortBreak={startShortBreak}
-            startLongBreak={startLongBreak}
-          />
-        </div>
-        <CustomTimer></CustomTimer>
+        {isCustomTimerSelected ? (
+          <CustomTimer handleCustomTimeChange={handleCustomTimeChange} />
+        ) : (
+          <div className="container-count-panel">
+            <Activity timerType={timerType} />
+            <Counter
+              key={counterKey}
+              timerType={timerType}
+              isRunning={isRunning}
+              setTime={setTime}
+              time={customTime || time}
+            />
+            <TimerPanel
+              onStart={handleStart}
+              onReset={handleReset}
+              startPomodoro={startPomodoro}
+              startShortBreak={startShortBreak}
+              startLongBreak={startLongBreak}
+            />
+          </div>
+        )}
       </div>
     </div>
   );

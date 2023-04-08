@@ -1,32 +1,26 @@
 import "./CustomTimer.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-function CustomTimer() {
-  const [value, setValue] = useState(0);
+function CustomTimer({ handleCustomTimeChange }) {
+  const [value, setvalue] = useState(0);
   const increaseValue = () => {
-    setValue(value + 1);
+    setvalue(value + 1);
   };
   const decreaseValue = () => {
-    setValue(value < 1 ? 1 : value - 1);
+    setvalue(value < 1 ? 1 : value - 1);
   };
+  useEffect(() => {
+    handleCustomTimeChange(value * 60);
+  }, [value, handleCustomTimeChange]);
   return (
     <div className="custom-timer-cont">
       <div>
-        <nav>
-          <ul className="custom-time-items">
-            <li>Pomodoro</li>
-            <li>Short Break</li>
-            <li>Long Break</li>
-          </ul>
-        </nav>
-        <hr></hr>
         <div className="change-timer">
-          <p>Enter Your Custom Time Here</p>
           <form>
             <div className="value-button" id="decrease" onClick={decreaseValue}>
               -
             </div>
-            <input type="number" id="number" value={value} />
+            <input type="number" id="number" value={value} readOnly />
             <div className="value-button" id="increase" onClick={increaseValue}>
               +
             </div>

@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
 }
@@ -6,31 +6,26 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-body{
-  
+body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   height: 120vh;
-  
-  
 }
-.container-count-panel{
+.container-count-panel {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
 }
-h1{
+h1 {
   color: white;
   align-items: center;
 }
 
-
- /* Responsive styles for screens smaller than 768px */
- @media (max-width: 767px) {
-  body{
+/* Responsive styles for screens smaller than 768px */
+@media (max-width: 767px) {
+  body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

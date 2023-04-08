@@ -8,6 +8,8 @@ function Header({
   startLongBreak,
   handleModalClick,
   changeBackground,
+  handleCustomTimeChange,
+  handleCustomTimerClick,
 }) {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
 
@@ -16,18 +18,20 @@ function Header({
   }
   return (
     <div className="header">
-      <div
-        className={`header-left ${isSidebarVisible ? "shift-right" : ""}`}
-        isSidebarVisible={isSidebarVisible}
-        changeBackground={changeBackground}
-      >
+      <div className={`header-left ${isSidebarVisible ? "shift-right" : ""}`}>
         <img
           src="/images/gear.svg"
           alt="gear.svg"
           onClick={toggleSidebar}
         ></img>
 
-        {isSidebarVisible && <Sidebar changeBackground={changeBackground} />}
+        {isSidebarVisible && (
+          <Sidebar
+            changeBackground={changeBackground}
+            handleCustomTimerClick={handleCustomTimerClick}
+            handleCustomTimeChange={handleCustomTimeChange}
+          />
+        )}
       </div>
       <div className="header-center">
         <button className="header-btn" onClick={startPomodoro}>

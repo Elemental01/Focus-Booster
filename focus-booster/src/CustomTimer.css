@@ -1,33 +1,11 @@
 .custom-timer-cont {
-  max-width: 7em;
-  height: 5em;
-  margin-left: 5em;
+  max-width: 6em;
+  height: 4em;
+  margin: 0;
   background-color: whitesmoke;
   opacity: 0.98;
-  margin-left: 8rem;
-  transform: translateY(-100%);
-  border-radius: 10%;
-}
-hr {
-  width: 100%;
-}
-ul {
-  list-style-type: none;
-}
-.custom-time-items > li {
-  font-size: 25px;
-  color: rgb(8, 7, 7);
-  padding: 0.5em;
-  white-space: nowrap;
-}
-.custom-time-items {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-}
-.change-timer > p {
-  color: rgb(9, 8, 8);
-  font-size: 18px;
+  transform: translateX(150%);
+  border-radius: 8%;
 }
 /* CSS for Timer Increment and Decrement  */
 form {
@@ -36,6 +14,7 @@ form {
   margin-top: 0.5em;
   text-align: center;
   padding: 0;
+  transform: translateY(70%);
 }
 .value-button {
   display: inline-block;
@@ -87,4 +66,25 @@ input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+@media only screen and (max-width: 767px) {
+  .custom-timer-cont {
+    max-width: 100%;
+    height: 4em;
+    transform: translateX(0);
+  }
+  form {
+    width: 80%;
+    transform: translateY(50%);
+  }
+  .value-button {
+    width: 1em;
+    height: 1.5em;
+    font-size: 1.1rem;
+  }
+  input#number {
+    font-size: 1.5rem;
+    width: 1.5em;
+    height: 1.5em;
+  }
 }

@@ -1,8 +1,12 @@
 import "./Sidebar.css";
-function Sidebar({ issidebarvisible, changeBackground }) {
+function Sidebar({
+  issidebarvisible,
+  changeBackground,
+  handleCustomTimerClick,
+  handleCustomTimeChange,
+}) {
   return (
     <div className={`side-nav ${issidebarvisible ? "hidden" : ""}`}>
-      {console.log(`is Sidebar Visible ${issidebarvisible}`)}
       <ul>
         <hr></hr>
         <li>
@@ -13,7 +17,9 @@ function Sidebar({ issidebarvisible, changeBackground }) {
         </li>
         <hr></hr>
         <li>
-          <p className="side-features">Custom Timer</p>
+          <p className="side-features" onClick={handleCustomTimerClick}>
+            Custom Timer
+          </p>
         </li>
         <li>
           <p className="side-features" onClick={changeBackground}>

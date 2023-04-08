@@ -1,23 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Counter.css";
 
-function Counter({ timerType, isRunning,setTime,time }) {
-useEffect(() => {
+function Counter({ timerType, isRunning, setTime, time }) {
+  const [currentTime, setCurrentTime] = useState(time);
+
+  useEffect(() => {
     setTime(getInitialTime(timerType));
-  }, [timerType,setTime]);
+    setCurrentTime(time);
+  }, [timerType, setTime, time]);
 
   useEffect(() => {
     let countdown;
     if (isRunning) {
       countdown = setInterval(() => {
-        setTime((prevTime) => prevTime - 1);
+        setCurrentTime((prevTime) => prevTime - 1);
       }, 1000);
     }
-    if (time === 0) {
+    if (currentTime === 0) {
       clearInterval(countdown);
     }
     return () => clearInterval(countdown);
-  }, [isRunning, time,setTime]);
+  }, [isRunning, currentTime]);
 
   function getInitialTime(timerType) {
     switch (timerType) {
@@ -33,9 +36,9 @@ useEffect(() => {
   }
 
   // calculate minutes and seconds from total time
-  const minutes = Math.floor(time / 60);
-  const seconds = time % 60;
-
+  const minutes = Math.floor(currentTime / 60);
+  const seconds = currentTime % 60;
+  console.log(`Time is ${currentTime}`);
   return (
     <div className="container">
       <div className="container-segment">
