@@ -38,7 +38,7 @@ function Counter({ timerType, isRunning, setTime, time }) {
   // calculate minutes and seconds from total time
   const minutes = Math.floor(currentTime / 60);
   const seconds = currentTime % 60;
-  console.log(`Time is ${currentTime}`);
+  //console.log(`Time is ${currentTime}`);
   return (
     <div className="container">
       <div className="container-segment">

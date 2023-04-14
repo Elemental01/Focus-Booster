@@ -69,9 +69,11 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 @media only screen and (max-width: 767px) {
   .custom-timer-cont {
-    max-width: 100%;
-    height: 4em;
+    max-width: 70%;
+    height: 3em;
     transform: translateX(0);
+    margin-left: 0.8em;
+    background-color: rgba(245, 245, 245, 0);
   }
   form {
     width: 80%;
@@ -80,7 +82,7 @@ input[type="number"]::-webkit-outer-spin-button {
   .value-button {
     width: 1em;
     height: 1.5em;
-    font-size: 1.1rem;
+    font-size: 0.8rem;
   }
   input#number {
     font-size: 1.5rem;

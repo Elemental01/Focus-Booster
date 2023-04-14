@@ -1,118 +1,115 @@
-@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Mukta:wght@200;400;700&display=swap");
 
-*, *::after, *::before {
-    box-sizing: border-box;
-    font-family: Mukta, sans-serif;
-    font-size: 2.25rem;
-    color: #0e0b0b;  
-     
-  }
-  .container {
-    display: flex;
-    gap: .5em;
-    justify-content: center;
-    max-width: 960px; /* adjust this as needed */
-    max-height: 170px;
-    margin: 0 auto;
-    /*border: 1px solid #ccc; /* add a border for the box-like effect */
-    padding: 10px; /* add some padding for spacing */
-  }
- 
-  
-  .flip-card {
-    position: relative;
-    display: inline-flex;
-    flex-direction: column;
-    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .2);
-    border-radius: .1em;
-    opacity: 0.7;
-    top: -400px;
-  }
-  
-  .top,
-  .bottom,
-  .flip-card .top-flip,
-  .flip-card .bottom-flip {
-    height: .75em;
-    line-height: 1;
-    padding: .25em;
-    overflow: hidden;
-  }
-  
-  .top,
-  .flip-card .top-flip {
-    background-color: #f7f7f7;
-    border-top-right-radius: .1em;
-    border-top-left-radius: .1em;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  }
-  
-  .bottom,
-  .flip-card .bottom-flip {
-    background-color: white;
-    display: flex;
-    align-items: flex-end;
-    border-bottom-right-radius: .1em;
-    border-bottom-left-radius: .1em;
-  }
-  
-  .flip-card .top-flip {
-    position: absolute;
-    width: 100%;
-    animation: flip-top 250ms ease-in;
-    transform-origin: bottom;
-  }
-  
-  @keyframes flip-top {
-    100% {
-      transform: rotateX(90deg);
-    }
-  }
-  
-  .flip-card .bottom-flip {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    animation: flip-bottom 250ms ease-out 250ms;
-    transform-origin: top;
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  font-family: Mukta, sans-serif;
+  font-size: 2.25rem;
+  color: #0e0b0b;
+}
+.container {
+  display: flex;
+  gap: 0.5em;
+  justify-content: center;
+  max-width: 960px; /* adjust this as needed */
+  max-height: 170px;
+  margin: 0 auto;
+  /*border: 1px solid #ccc; /* add a border for the box-like effect */
+  padding: 10px; /* add some padding for spacing */
+}
+
+.flip-card {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 0.1em;
+  opacity: 0.7;
+  top: -400px;
+}
+
+.top,
+.bottom,
+.flip-card .top-flip,
+.flip-card .bottom-flip {
+  height: 0.75em;
+  line-height: 1;
+  padding: 0.25em;
+  overflow: hidden;
+}
+
+.top,
+.flip-card .top-flip {
+  background-color: #f7f7f7;
+  border-top-right-radius: 0.1em;
+  border-top-left-radius: 0.1em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.bottom,
+.flip-card .bottom-flip {
+  background-color: white;
+  display: flex;
+  align-items: flex-end;
+  border-bottom-right-radius: 0.1em;
+  border-bottom-left-radius: 0.1em;
+}
+
+.flip-card .top-flip {
+  position: absolute;
+  width: 100%;
+  animation: flip-top 250ms ease-in;
+  transform-origin: bottom;
+}
+
+@keyframes flip-top {
+  100% {
     transform: rotateX(90deg);
   }
-  
-  @keyframes flip-bottom {
-    100% {
-      transform: rotateX(0deg);
-    }
+}
+
+.flip-card .bottom-flip {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  animation: flip-bottom 250ms ease-out 250ms;
+  transform-origin: top;
+  transform: rotateX(90deg);
+}
+
+@keyframes flip-bottom {
+  100% {
+    transform: rotateX(0deg);
   }
-  
- 
-  
-  .container-segment {
-    display: flex;
-    flex-direction: column;
-    gap: .1em;
-    align-items: center;
+}
+
+.container-segment {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1em;
+  align-items: center;
+}
+
+.segment {
+  display: flex;
+  gap: 0.1em;
+  position: relative;
+}
+
+.segment-title {
+  font-size: 1rem;
+  margin-bottom: 400px;
+  color: #f7f7f7;
+}
+@media (max-width: 747px) {
+  .container-count-panel {
+    max-height: 500px;
   }
-  
-  .segment {
-    display: flex;
-    gap: .1em;
-    position: relative;
+  .container {
+    max-width: 800px; /* adjust this as needed */
+    max-height: 170px;
+    margin: 0 auto;
+    padding: 10px; /* add some padding for spacing */
   }
-  
-  .segment-title {
-    font-size: 1rem;
-    margin-bottom: 400px;
-    color: #f7f7f7;
-  }
-  @media (max-width:747px){
-    .container-count-panel{
-      max-height: 500px;
-    }
-    .container {
-      max-width: 800px; /* adjust this as needed */
-      max-height: 170px;
-      margin: 0 auto;
-      padding: 10px; /* add some padding for spacing */
-    }
-  }
-  
+}
