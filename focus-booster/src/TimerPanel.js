@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import "./TimerPanel.css";
 
-function TimerPanel({ onStart, onReset}) {
+function TimerPanel({ onStart, onReset }) {
   const [isRunning, setIsRunning] = useState(false);
-
+  const audio = new Audio("/sounds/click.mp3");
   const handleStart = () => {
     setIsRunning(!isRunning);
     onStart();
+    audio.play();
   };
 
   const handleReset = () => {
+    audio.play();
     setIsRunning(false);
     onReset();
   };
@@ -22,7 +24,6 @@ function TimerPanel({ onStart, onReset}) {
       <button className="Timer-panel-btn" onClick={handleReset}>
         Reset
       </button>
-
     </div>
   );
 }
