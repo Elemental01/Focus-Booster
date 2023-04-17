@@ -3,6 +3,7 @@ import "./Counter.css";
 
 function Counter({ timerType, isRunning, setTime, time }) {
   const [currentTime, setCurrentTime] = useState(time);
+  const completedAudio = new Audio("/sounds/completed.wav");
 
   useEffect(() => {
     setTime(getInitialTime(timerType));
@@ -17,6 +18,7 @@ function Counter({ timerType, isRunning, setTime, time }) {
       }, 1000);
     }
     if (currentTime === 0) {
+      completedAudio.play();
       clearInterval(countdown);
     }
     return () => clearInterval(countdown);

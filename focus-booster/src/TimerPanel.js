@@ -5,9 +5,9 @@ function TimerPanel({ onStart, onReset }) {
   const [isRunning, setIsRunning] = useState(false);
   const audio = new Audio("/sounds/click.mp3");
   const handleStart = () => {
+    audio.play();
     setIsRunning(!isRunning);
     onStart();
-    audio.play();
   };
 
   const handleReset = () => {
